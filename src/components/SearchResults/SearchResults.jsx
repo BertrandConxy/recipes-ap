@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { useParams, Link } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import { Grid } from 'react-loader-spinner'
 import Card from '../Card/Card'
 import Category from '../Category/Category'
