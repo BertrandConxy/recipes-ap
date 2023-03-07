@@ -1,33 +1,19 @@
-import { Link } from "react-router-dom";
-import Pages from "./pages/Pages";
-import { GiKnifeFork } from "react-icons/gi";
+import { Routes, Route, useLocation } from 'react-router-dom'
+import Home from './pages/Home'
+import SearchResults from './components/SearchResults/SearchResults'
+import Cuisines from './components/Cuisines/Cuisines'
 
 const App = () => {
+  const location = useLocation()
+
   return (
-    <div>
-      <div className="flex justify-start items-center p-5">
-        <GiKnifeFork className="text-2xl" />
-        <Link to={"/"} className="text-xl font-medium">Recipe app</Link>
-      </div>
-      {!import.meta.env.VITE_API_KEY ? (
-        <p>
-          Please get the API key from{" "}
-          <strong>
-            <a href="https://spoonacular.com/food-api/">Spoonacular Food Api</a>
-          </strong>
-          <br />
-          <br />
-          and add it in your env file with{" "}
-          <strong>"REACT_APP_FOOD_API_KEY"</strong> name and restart the app
-        </p>
-      ) : (
-        <>
-          <Pages />
-        </>
-      )}
-    </div>
-  );
-};
+    <Routes Location={location} key={location.pathname}>
+      <Route path="/" element={<Home />}>
+        <Route path="searched/:search" element={<SearchResults />} />
+        <Route path="searched/:search/:type" element={<Cuisines />} />
+      </Route>
+    </Routes>
+  )
+}
 
-
-export default App;
+export default App

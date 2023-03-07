@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import fetchRandom from '../../services/fetchRandom'
 import Card from '../Card/Card'
 
 import { Splide, SplideSlide } from '@splidejs/react-splide'

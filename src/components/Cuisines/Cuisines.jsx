@@ -1,7 +1,6 @@
-import Card from '../components/Card/Card'
+import Card from '../Card/Card'
 
 const Cuisines = ({ filtered }) => {
-  console.log(filtered)
   return (
     <div>
       {filtered.length === 0 ? (

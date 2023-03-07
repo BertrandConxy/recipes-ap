@@ -1,10 +1,9 @@
 import { useState, useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
-// import fetchSearched from '../services/fetchSearched'
 import { Grid } from 'react-loader-spinner'
-import Card from '../components/Card/Card'
-import Category from '../components/Category/Category'
-import Cuisines from './Cuisines'
+import Card from '../Card/Card'
+import Category from '../Category/Category'
+import Cuisines from '../Cuisines/Cuisines'
 
 const SearchResults = () => {
   const [searchedRecipes, setSearchedRecipes] = useState([])
