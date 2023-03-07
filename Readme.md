@@ -14,7 +14,7 @@ Additional description about the project and its features.
 
 ## Live Demo
 
-[Live demo](https://simple-quiz-app42.netlify.app/)
+[Live demo](https://recipesapp123.netlify.app/)
 
 ## Built With
 
