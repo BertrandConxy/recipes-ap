@@ -1,68 +1,51 @@
-import { FaPizzaSlice, FaHamburger } from "react-icons/fa";
-import { GiNoodles, GiChopsticks } from "react-icons/gi";
-import styled from "styled-components";
-import { NavLink } from "react-router-dom";
+import { FaPizzaSlice, FaHamburger, FaFilter } from 'react-icons/fa'
+import { GiNoodles, GiChopsticks } from 'react-icons/gi'
+import styled from 'styled-components'
+import { NavLink, useNavigate, useParams } from 'react-router-dom'
+import { cuisineOptions } from '../../Data/CuisineOptions'
 
 const Category = () => {
+  const navigate = useNavigate()
+  const params = useParams()
+  const { search } = params
+
+  const handleChange = (e) => {
+    navigate(`/searched/${search}/${e.target.value}`)
+  }
   return (
-    <List>
-      <SLink to={"/cuisines/Italian"}>
+    <div className="w-[50%] m-auto">
+      {/* <SLink to={'/cuisines/Italian'}>
         <FaPizzaSlice />
         <h4>Italian</h4>
       </SLink>
-      <SLink to={"/cuisines/American"}>
+      <SLink to={'/cuisines/American'}>
         <FaHamburger />
         <h4>American</h4>
       </SLink>
-      <SLink to={"/cuisines/Thai"}>
+      <SLink to={'/cuisines/Thai'}>
         <GiNoodles />
         <h4>Thai</h4>
       </SLink>
-      <SLink to={"/cuisines/Japanese"}>
+      <SLink to={'/cuisines/Japanese'}>
         <GiChopsticks />
         <h4>Japanese</h4>
-      </SLink>
-    </List>
-  );
-};
+      </SLink> */}
+      <form className="flex items-center">
+        <FaFilter className="mx-2" />
+        <select
+          name="cuisine"
+          className="border border-2 py-2 px-1 w-[50%] outline-none"
+          onChange={handleChange}
+        >
+          {cuisineOptions.map((option) => (
+            <option key={option.label} value={option.value}>
+              {option.label}
+            </option>
+          ))}
+        </select>
+      </form>
+    </div>
+  )
+}
 
-const List = styled.div`
-  display: flex;
-  justify-content: center;
-  margin: 2rem 0;
-`;
-
-const SLink = styled(NavLink)`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  margin-right: 2rem;
-  text-decoration: none;
-  width: 6rem;
-  height: 6rem;
-  background: linear-gradient(35deg, #494949, #313131);
-  cursor: pointer;
-  transform: scale(0.8);
-
-  h4 {
-    color: #fff;
-    font-size: 0.8rem;
-  }
-  svg {
-    color: #fff;
-    font-size: 1.5rem;
-  }
-
-  &.active {
-    background: linear-gradient(to right, #f27121, #e94057);
-    svg {
-      color: #fff;
-    }
-    h4 {
-      color: #fff;
-    }
-  }
-`;
-export default Category;
+export default Category

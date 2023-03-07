@@ -8,14 +8,24 @@ import '@splidejs/splide/dist/css/themes/splide-default.min.css'
 const PopularRecipes = () => {
   const [random, setRandom] = useState([])
 
-  useEffect(() => {
-    const getData = localStorage.getItem('popular')
+  const fetchRandom = async () => {
+    const resp = await fetch(
+      `https://api.spoonacular.com/recipes/random?apiKey=${
+        import.meta.env.VITE_API_KEY
+      }&number=10`,
+    )
+    const data = await resp.json()
+    setRandom(data.recipes)
+    localStorage.setItem('random', JSON.stringify(data.recipes))
+    return data.recipes
+  }
 
-    if (getData) {
-      setRandom(JSON.parse(getData))
+  useEffect(() => {
+    const randomRecipe = localStorage.getItem('random')
+    if (randomRecipe) {
+      setRandom(JSON.parse(randomRecipe))
     } else {
-      const recipes = fetchRandom()
-      setRandom(recipes)
+      fetchRandom()
     }
   }, [])
 
@@ -42,9 +52,9 @@ const PopularRecipes = () => {
           },
         }}
       >
-        {random.map(({ title, id, image }) => (
+        {random.map(({ title, id, image, sourceUrl }) => (
           <SplideSlide key={id}>
-            <Card id={id} title={title} image={image} />
+            <Card id={id} title={title} image={image} sourceUrl={sourceUrl} />
           </SplideSlide>
         ))}
       </Splide>
