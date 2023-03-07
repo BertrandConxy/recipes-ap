@@ -4,7 +4,7 @@
 
 > Recipe app allows you to search any recipe. It is built using React js and consumes data from the [Spoonacular api](https://spoonacular.com/food-api/docs)
 
-<br/>![Screenshot from 2023-03-01 12-09-11](https://user-images.githubusercontent.com/90524466/222110273-0e49db2c-5229-4622-9653-63b500d22e77.png)
+<br/>![image](https://user-images.githubusercontent.com/90222110/223505811-d30ccbf4-bac6-4ceb-92fe-4ca3d52ae4db.png)
 
 
 <br/>
