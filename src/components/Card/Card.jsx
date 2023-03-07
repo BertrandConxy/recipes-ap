@@ -1,6 +1,6 @@
 const Card = ({ id, title, image, sourceUrl }) => {
   return (
-    <a href={sourceUrl} target="_blank" rel="noreferrer" key={id}>
+    <a href={sourceUrl} target="_blank" key={id}>
       <div className="min-h-[15rem] overflow-hidden relative rounded-lg">
         <p className="absolute inset-x-0 z-10 text-gray-200 bottom-0 h-16 w-full text-center font-bold">
           {title}
