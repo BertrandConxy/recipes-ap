@@ -9,7 +9,7 @@ const PopularRecipes = () => {
 
   const fetchRandom = async () => {
     const resp = await fetch(
-      `https://api.spoonacular.com/recipes/random?apiKey=f04f2e268419480d80e2c8c3da9bf698&number=10`,
+      `https://api.spoonacular.com/recipes/random?apiKey=ed210e26302d4f00910371959212ad1f&number=10`,
     )
     const data = await resp.json()
     setRandom(data.recipes)

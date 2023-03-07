@@ -15,7 +15,7 @@ const SearchResults = () => {
   const fetchSearched = async (search) => {
     setLoading(true)
     const resp = await fetch(
-      `https://api.spoonacular.com/recipes/complexSearch?apiKey=f04f2e268419480d80e2c8c3da9bf698&query=${search}&addRecipeInformation=true`,
+      `https://api.spoonacular.com/recipes/complexSearch?apiKey=ed210e26302d4f00910371959212ad1f&query=${search}&addRecipeInformation=true`,
     )
     const data = await resp.json()
     setLoading(false)
@@ -26,7 +26,7 @@ const SearchResults = () => {
   const handleFilter = async (search, type) => {
     setLoading(true)
     const resp = await fetch(
-      `https://api.spoonacular.com/recipes/complexSearch?apiKey=f04f2e268419480d80e2c8c3da9bf698&query=${search}&cuisine=${type}&addRecipeInformation=true`,
+      `https://api.spoonacular.com/recipes/complexSearch?apiKey=ed210e26302d4f00910371959212ad1f&query=${search}&cuisine=${type}&addRecipeInformation=true`,
     )
     const data = await resp.json()
     setLoading(false)
