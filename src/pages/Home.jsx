@@ -1,14 +1,16 @@
-import Random from "../components/Random/Random";
-import Veggie from "../components/Veggie/Veggie";
-import { motion } from "framer-motion";
+import PopularRecipes from '../components/PopularRecipes/PopularRecipes'
+import Search from '../components/Search/Search'
+import Category from '../components/Category/Category'
+import { motion } from 'framer-motion'
 
 const Home = () => {
   return (
     <motion.div>
-      <Random />
-      <Veggie />
+      <PopularRecipes />
+      <Search />
+      <Category />
     </motion.div>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home

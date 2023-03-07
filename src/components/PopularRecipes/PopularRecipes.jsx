@@ -1,33 +1,24 @@
-import { useEffect, useState } from "react";
-import styled from "styled-components";
+import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
+import styled from 'styled-components'
+import fetchRandom from '../../services/fetchRandom'
 
-import { Splide, SplideSlide } from "@splidejs/react-splide";
-import "@splidejs/splide/dist/css/themes/splide-default.min.css";
+import { Splide, SplideSlide } from '@splidejs/react-splide'
+import '@splidejs/splide/dist/css/themes/splide-default.min.css'
 
-import { Link } from "react-router-dom";
-
-const Random = () => {
-  const [random, setRandom] = useState([]);
-
-  const getRandomRecipes = async () => {
-    const getData = localStorage.getItem("popular");
-
-    if (getData) {
-      setRandom(JSON.parse(getData));
-    } else {
-      const resp = await fetch(
-        `https://api.spoonacular.com/recipes/random?apiKey=${import.meta.env.VITE_API_KEY}&number=10`
-      );
-      const data = await resp.json();
-      setRandom(data.recipes);
-      localStorage.setItem("popular", JSON.stringify(data.recipes));
-      console.log(data.recipes);
-    }
-  };
+const PopularRecipes = () => {
+  const [random, setRandom] = useState([])
 
   useEffect(() => {
-    getRandomRecipes();
-  }, []);
+    const getData = localStorage.getItem('popular')
+
+    if (getData) {
+      setRandom(JSON.parse(getData))
+    } else {
+      const recipes = fetchRandom()
+      setRandom(recipes)
+    }
+  }, [])
   return (
     <Wrapper>
       <h3>Random Picks</h3>
@@ -36,8 +27,8 @@ const Random = () => {
           perPage: 4,
           arrows: false,
           pagination: false,
-          drag: "free",
-          gap: "5rem",
+          drag: 'free',
+          gap: '5rem',
           breakpoints: {
             1024: {
               perPage: 3,
@@ -64,12 +55,12 @@ const Random = () => {
         ))}
       </Splide>
     </Wrapper>
-  );
-};
+  )
+}
 
 const Wrapper = styled.div`
   margin: 4rem 0;
-`;
+`
 
 const Card = styled.div`
   min-height: 25rem;
@@ -101,7 +92,7 @@ const Card = styled.div`
     justify-content: center;
     align-items: center;
   }
-`;
+`
 
 const Gradient = styled.div`
   position: absolute;
@@ -110,6 +101,6 @@ const Gradient = styled.div`
   background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
   z-index: 3;
   border-radius: 2rem;
-`;
+`
 
-export default Random;
+export default PopularRecipes
