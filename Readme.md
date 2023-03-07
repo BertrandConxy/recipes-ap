@@ -1,8 +1,8 @@
-![](https://img.shields.io/badge/Questapp-blue)
+![](https://img.shields.io/badge/RecipeApp-blue)
 
-# Questapp
+# Recipe-app
 
-> questapp is an app that allows you to play a game of answering questions and provides results at the end. It is built using React js
+> Recipe app allows you to search any recipe. It is built using React js and consumes data from the [Spoonacular api](https://spoonacular.com/food-api/docs)
 
 <br/>![Screenshot from 2023-03-01 12-09-11](https://user-images.githubusercontent.com/90524466/222110273-0e49db2c-5229-4622-9653-63b500d22e77.png)
 
@@ -54,9 +54,9 @@ $ npm run test
 #### Clone this repository
 
 ```bash
-$ git clone https://github.com/mugishasam123/simple-quiz-app
+$ git clone https://github.com/mugishasam123/recipes-ap
 .git
-$ cd simple-quiz-app
+$ cd recipes-ap
 ```
 
 #### Run project
@@ -82,7 +82,7 @@ $ npm run dev # this will open it in the browser and enable hot reloading
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/mugishasam123/simple-quiz-app/issues).
+Feel free to check the [issues page](https://github.com/mugishasam123/recipes-ap/issues).
 
 <br>
 
